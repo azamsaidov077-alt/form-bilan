@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Suppliers{% endblock %}
+
+{% block content %}
+<h2>Suppliers List</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Company Name</th>
+        <th>Contact Name</th>
+        <th>Address</th>
+        <th>City</th>
+    </tr>
+
+    {% for s in suppliers %}
+    <tr>
+        <td>{{ s.supplier_id }}</td>
+        <td>{{ s.company_name }}</td>
+        <td>{{ s.contact_name }}</td>
+        <td>{{ s.address }}</td>
+        <td>{{ s.city }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="5" class="text-center">No suppliers found.</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

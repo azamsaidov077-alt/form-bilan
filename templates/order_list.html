@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Orders List{% endblock %}
+
+{% block content %}
+<h2>Orders List</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Mijoz</th>
+            <th>Order Date</th>
+            <th>Required Date</th>
+            <th>Shipped Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for o in orders %}
+        <tr>
+            <td>{{ o.order_id }}</td>
+            <td>{{ o.customer_name }}</td>
+            <td>{{ o.order_date }}</td>
+            <td>{{ o.required_date }}</td>
+            <td>{{ o.shipped_date|default:"-" }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="5" class="text-center">Hozircha order yo‘q</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
