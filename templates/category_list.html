@@ -18,6 +18,7 @@
                 <th>Nomi</th>
                 <th>Tavsif</th>
                 <th>Rasm</th>
+                <th>Ochirish</th>
             </tr>
         </thead>
         <tbody>
@@ -33,10 +34,15 @@
                         ---
                     {% endif %}
                 </td>
+                <td>
+                    <a href="{% url 'delete_category' c.id %}" class="btn btn-danger btn-sm">
+                        O‘chirish
+                    </a>
+                </td>
             </tr>
             {% empty %}
             <tr>
-                <td colspan="4" class="text-center">Kategoriya mavjud emas</td>
+                <td colspan="5" class="text-center">Kategoriya mavjud emas</td>
             </tr>
             {% endfor %}
         </tbody>

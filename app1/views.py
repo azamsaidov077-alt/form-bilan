@@ -92,3 +92,24 @@ def add_order(request):
 def order_list(request):
     orders = Orders.objects.all()
     return render(request, 'order_list.html', {'orders': orders})
+
+
+def delete_category(request,pk):
+    cat=Category.objects.get(id=pk)
+    cat.delete()
+    return redirect('category_list')
+
+def delete_product(request,pk):
+    product=Products.objects.get(id=pk)
+    product.delete()
+    return redirect('product_list')
+
+def delete_supplier(request,pk):
+    supplier=Suppliers.objects.get(id=pk)
+    supplier.delete()
+    return redirect('suppliers_list')
+
+def delete_order(request,pk):
+    order=Orders.objects.get(id=pk)
+    order.delete()
+    return redirect('order_list')

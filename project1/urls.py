@@ -31,10 +31,10 @@ urlpatterns = [
     path('suppliers/', views.suppliers_list, name='suppliers_list'),
     path('add_order/', views.add_order, name='add_order'),
     path('orders/', views.order_list, name='order_list'),
-
-
-
-
+    path('category/delete/<int:pk>/',views.delete_category,name='delete_category'),
+    path('product/delete/<int:pk>/',views.delete_product,name='delete_product'),
+    path('supplier/delete/<int:pk>/',views.delete_supplier,name='delete_supplier'),
+    path('order/delete/<int:pk>/',views.delete_order,name='delete_order'),
 
 ]
 

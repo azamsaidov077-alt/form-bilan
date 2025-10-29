@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-
 {% block title %}Orders List{% endblock %}
 
 {% block content %}
@@ -13,6 +12,7 @@
             <th>Order Date</th>
             <th>Required Date</th>
             <th>Shipped Date</th>
+            <th>Ochirish</th>
         </tr>
     </thead>
     <tbody>
@@ -23,9 +23,12 @@
             <td>{{ o.order_date }}</td>
             <td>{{ o.required_date }}</td>
             <td>{{ o.shipped_date|default:"-" }}</td>
+            <td>
+                <a href="{% url 'delete_order' o.id %}" class="btn btn-danger btn-sm">Ochirish</a>
+            </td>
         </tr>
         {% empty %}
-        <tr><td colspan="5" class="text-center">Hozircha order yo‘q</td></tr>
+        <tr><td colspan="6" class="text-center">Hozircha order yo‘q</td></tr>
         {% endfor %}
     </tbody>
 </table>
